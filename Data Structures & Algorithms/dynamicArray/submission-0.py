@@ -1,0 +1,34 @@
+class DynamicArray:
+    
+    def __init__(self, capacity: int):
+        self.maxlen = capacity
+        self.array = []
+
+
+    def get(self, i: int) -> int:
+        return self.array[i]
+
+
+    def set(self, i: int, n: int) -> None:
+        self.array[i] = n
+
+
+    def pushback(self, n: int) -> None:
+        if len(self.array) >= self.maxlen:
+            self.resize()
+        self.array.append(n)
+
+
+    def popback(self) -> int:
+        return self.array.pop(-1)
+
+    def resize(self) -> None:
+        self.maxlen *= 2
+
+
+    def getSize(self) -> int:
+        return len(self.array)
+        
+    
+    def getCapacity(self) -> int:
+        return self.maxlen
